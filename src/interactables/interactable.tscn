@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://brx6iovrk60ta"]
+
+[ext_resource type="Script" path="res://src/interactables/interactable.gd" id="1_a5khy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53t3r"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6eqtm"]
+size = Vector2(96, 96)
+
+[node name="Interactable" type="Area2D"]
+texture_filter = 1
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_a5khy")
+
+[node name="Popup" type="CanvasLayer" parent="."]
+
+[node name="Text" type="Label" parent="Popup"]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 80.0
+offset_bottom = -22.0
+text = "Press E to XXXX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notice" type="Sprite2D" parent="Popup"]
+position = Vector2(16, -16)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 7
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_53t3r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_6eqtm")
+metadata/_edit_lock_ = true
